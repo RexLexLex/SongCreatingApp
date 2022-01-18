@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class SetChords : MonoBehaviour
+{
+    private int textscount;
+    public GameObject Canvas;
+    public TextMeshProUGUI TextClone;
+    public Color RedColor = new Color32(255,0,0,255);
+    // Start is called before the first frame update
+    void Start()
+    {
+        Canvas = GameObject.Find("Canvas");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void OnClickSet()
+    {
+        textscount = Canvas.transform.childCount-9;
+        for (int i = 7; i < textscount-1; i++)
+        {
+            //GameObject textcl
+            TextClone = Canvas.transform.GetChild(i).GetComponent<TextMeshProUGUI>();//.GetComponent<TextMeshProUGUI>().color=RedColor;
+            TextClone.color = RedColor;
+            Debug.Log(TextClone.text);
+        }
+        Debug.Log("Numero de acordes a posicionar: "+textscount);
+    }
+}
